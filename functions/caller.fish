@@ -26,6 +26,10 @@ function caller --argument-names cmd --description "Contact remote host through 
                 set --global _caller_is_kitty_terminal true
             end
 
+            # TODO 1: one argument given, if is ~/.ssh/config host try to connect, else either throw error or try host with user root
+            # TODO 2: two arguments given, try to connect using first one as user and second one as host. If successful, ask to save configuration (backup old config, append block)?
+            # TODO 3: otherwise, create a new command to save configs, like "connect create <user> <host>" or "connect new <user> <host>"
+
             if test "$target_host" = ""
                 echo "caller: Not enough arguments for command: \"$cmd\"" >&2 && return 1
             end
