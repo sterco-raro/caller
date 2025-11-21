@@ -2,6 +2,12 @@
 
 An utility to handle ssh connections, written in pure fish
 
+### TODO
+
+- prerequisites (packages, configurations, etc.)
+- install
+- usage
+
 ### Install
 
 ```bash
