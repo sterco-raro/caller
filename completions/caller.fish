@@ -1,5 +1,7 @@
 complete --command caller --exclusive --long help --description "Print help"
 complete --command caller --exclusive --long version --description "Print version"
 complete --command caller --exclusive --condition __fish_use_subcommand --arguments connect --description "Try to connect to host using SSH"
+complete --command caller --exclusive --condition __fish_use_subcommand --arguments add --description "Add a new Host block to ~/.ssh/config"
 complete --command caller --exclusive --condition __fish_use_subcommand --arguments list --description "List configured SSH connections"
 complete --command caller --exclusive --condition "__fish_seen_subcommand_from connect" --arguments "(caller list)"
+complete --command caller --exclusive --condition "__fish_seen_subcommand_from add" --arguments "(ls ~/.ssh | grep -vE '\.pub|config|known_hosts')"
