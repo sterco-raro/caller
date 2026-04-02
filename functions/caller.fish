@@ -35,7 +35,7 @@ function caller --argument-names cmd --description "Contact remote host through 
             end
 
             # Test if the given host is present in the SSH configuration
-            if not string match --quiet -- "$target_host" (cat ~/.ssh/config | ag ^Host | cut -d" " -f2)
+            if not string match --quiet -- "$target_host" (cat ~/.ssh/config | grep ^Host | cut -d" " -f2)
                 echo "caller: Unknown host" >&2 && return 2
             end
 
@@ -51,7 +51,7 @@ function caller --argument-names cmd --description "Contact remote host through 
             end
 
         case list
-            cat ~/.ssh/config | ag ^Host | cut -d" " -f2
+            cat ~/.ssh/config | grep ^Host | cut -d" " -f2
 
         case \*
             echo "caller: Unknown command: \"$cmd\"" >&2 && return 1
